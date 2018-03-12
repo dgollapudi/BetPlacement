@@ -14,57 +14,67 @@
             <artifactId>jms</artifactId>
             <version>1.1</version>
         </dependency>
-    </dependencies>
-    <build>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>net.alchim31.maven</groupId>
-                    <artifactId>scala-maven-plugin</artifactId>
-                    <version>${scala-maven-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        <plugins>
-            <plugin>
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>testCompile</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <arg>-target:jvm-1.7</arg>
-                                <arg>-deprecation</arg>
-                                <arg>-feature</arg>
-                                <arg>-unchecked</arg>
-                                <arg>-language:implicitConversions</arg>
-                                <arg>-language:postfixOps</arg>
-                            </args>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
+        <dependency>
+            <groupId>io.gatling.highcharts</groupId>
+            <artifactId>gatling-charts-highcharts</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+    <dependency>
+    <groupId>SDET-TECHNICAL-TEST</groupId>
+    <artifactId>SDET-TECHNICAL-TEST</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</dependency>
+        </dependencies>
+<build>
+<testSourceDirectory>src/test/scala</testSourceDirectory>
+<pluginManagement>
+    <plugins>
         <plugin>
+            <groupId>net.alchim31.maven</groupId>
+            <artifactId>scala-maven-plugin</artifactId>
+            <version>${scala-maven-plugin.version}</version>
+        </plugin>
+    </plugins>
+</pluginManagement>
+<plugins>
+    <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+        <executions>
+            <execution>
+                <goals>
+                    <goal>testCompile</goal>
+                </goals>
+                <configuration>
+                    <args>
+                        <arg>-target:jvm-1.7</arg>
+                        <arg>-deprecation</arg>
+                        <arg>-feature</arg>
+                        <arg>-unchecked</arg>
+                        <arg>-language:implicitConversions</arg>
+                        <arg>-language:postfixOps</arg>
+                    </args>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+
+    <plugin>
         <groupId>io.gatling</groupId>
         <artifactId>gatling-maven-plugin</artifactId>
-        <version>2.2.0</version>
-            <executions>
-                <execution>
-                    <phase>test</phase>
-                    <goals>
-                        <goal>execute</goal>
-                    </goals>
-                </execution>
-            </executions>
-            <configuration>
-                <simulationClass>SimSportsBookBets</simulationClass>
-            </configuration>
-        </plugin>
-        </plugins>
+        <version>2.2.4</version>
+        <executions>
+            <execution>
+                <phase>test</phase>
+                <goals>
+                    <goal>execute</goal>
+                </goals>
+            </execution>
+        </executions>
+        <configuration>
+            <simulationClass>SimSportsBookBets</simulationClass>
+        </configuration>
+    </plugin>
+</plugins>
 </build>
-</project>
+        </project>
